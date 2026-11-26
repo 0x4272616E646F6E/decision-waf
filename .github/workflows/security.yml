@@ -35,13 +35,13 @@ jobs:
           - language: actions
             build-mode: none
     steps:
-      - uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a
+      - uses: step-security/harden-runner@aebdcf6156ab6691adf63218240e476564a1ed4c
         with:
           egress-policy: audit
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e
+      - uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5
         if: matrix.language == 'go'
         with:
           go-version-file: go.mod
@@ -60,13 +60,13 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a
+      - uses: step-security/harden-runner@aebdcf6156ab6691adf63218240e476564a1ed4c
         with:
           egress-policy: audit
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e
+      - uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5
         with:
           go-version-file: go.mod
       - name: Known vulnerabilities reachable from our code
@@ -82,14 +82,14 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a
+      - uses: step-security/harden-runner@aebdcf6156ab6691adf63218240e476564a1ed4c
         with:
           egress-policy: audit
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
           fetch-depth: 0
-      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e
+      - uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5
         with:
           go-version-file: go.mod
       - name: Secrets in the git history
@@ -104,7 +104,7 @@ jobs:
       contents: read
       security-events: write
     steps:
-      - uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a
+      - uses: step-security/harden-runner@aebdcf6156ab6691adf63218240e476564a1ed4c
         with:
           egress-policy: audit
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
@@ -121,10 +121,10 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a
+      - uses: step-security/harden-runner@aebdcf6156ab6691adf63218240e476564a1ed4c
         with:
           egress-policy: audit
-      - uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294
+      - uses: actions/dependency-review-action@bbc44d14a204704ccc493733616cd1e93a0321ec
         with:
           fail-on-severity: moderate
           comment-summary-in-pr: on-failure
